@@ -3,6 +3,8 @@ package com.ketan.userservice.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity(name = "sessions")
 @Getter
 @Setter
@@ -16,4 +18,8 @@ public class UserSession extends  BaseModel {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    private Date expiresAt;
+    @Enumerated(EnumType.ORDINAL)
+    private SessionStatus status;
 }

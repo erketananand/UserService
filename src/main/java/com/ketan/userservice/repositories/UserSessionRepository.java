@@ -10,5 +10,7 @@ public interface UserSessionRepository extends JpaRepository<UserSession, Long> 
     Optional<UserSession> findByToken(String token);
 
     List<UserSession> findAllByUserEmail(String email);
+
+    Optional<UserSession> findByTokenAndUser_Id(String token, Long id);
 }
 
